@@ -1,16 +1,29 @@
 package Services;
 
 import Model.Player;
+import Repository.PlayerRepository;
 import Util.ConnectionUtil;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class PlayerServices {
     Connection conn;
     Scanner in = new Scanner(System.in);
+    PlayerRepository pr;
     public PlayerServices() {
         conn = ConnectionUtil.getConnection();
+        pr = new PlayerRepository();
+    }
+    public void addPlayer(Player p) {
+        Player test = pr.getPlayerByName(p.getName());
+        if (test == null) {
+            pr.addPlayer(p);
+        } else {
+            System.out.println("Invalid Player! Please try again!");
+        }
     }
 
     public Player chooseClass(PlayerServices ps) {

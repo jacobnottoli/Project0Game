@@ -14,6 +14,7 @@ public class MainMenu {
             if (menuchoice.equals("1")) {
                 //Create Character
                 Player p = ps.chooseClass(ps);
+                ps.addPlayer(p);
 
             } else if (menuchoice.equals("2")) {
                 //Return to existing character
