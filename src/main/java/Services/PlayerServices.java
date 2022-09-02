@@ -7,6 +7,7 @@ import Util.ConnectionUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 public class PlayerServices {
@@ -17,12 +18,18 @@ public class PlayerServices {
         conn = ConnectionUtil.getConnection();
         pr = new PlayerRepository();
     }
+   /*
+    public Player getPlayerFromTable(String name) {
+        ;
+    }
+
+    */
     public void addPlayer(Player p) {
         Player test = pr.getPlayerByName(p.getName());
         if (test == null) {
             pr.addPlayer(p);
         } else {
-            System.out.println("Invalid Player! Please try again!");
+            System.out.println("Invalid Player! Two players cannot have the same name. Please try again!");
         }
     }
 
