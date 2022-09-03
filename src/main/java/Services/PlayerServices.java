@@ -22,8 +22,17 @@ public class PlayerServices {
     public Player getPlayerFromTable(String name) {
         ;
     }
-
     */
+    public void deletePlayer(String name) {
+        Connection conn = ConnectionUtil.getConnection();
+        try {
+            PreparedStatement ps = conn.prepareStatement("delete from players where name = ?");
+            ps.setString(1,name);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public void addPlayer(Player p) {
         Player test = pr.getPlayerByName(p.getName());
         if (test == null) {

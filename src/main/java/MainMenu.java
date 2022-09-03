@@ -26,6 +26,7 @@ public class MainMenu {
                     int choice = ms.playOrDelete(character);
                     if (choice == 1) {
                         //play game
+
                     } else if (choice == 2) {
                         // delete character
                     }

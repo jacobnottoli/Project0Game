@@ -1,5 +1,6 @@
 package Services;
 
+import Model.Player;
 import Util.ConnectionUtil;
 
 import java.sql.Connection;
@@ -13,8 +14,11 @@ import java.util.Set;
 public class MenuServices {
     Connection conn;
     Scanner in = new Scanner(System.in);
+    PlayerServices ps = new PlayerServices();
     public MenuServices() {
+
         conn = ConnectionUtil.getConnection();
+
     }
     public int playOrDelete(String name) {
         System.out.println("What would you like to do with " + name + "?\n1.Play\n2.Delete");
@@ -25,6 +29,8 @@ public class MenuServices {
             System.out.println("Are you sure you want to delete this character? If yes, please type 'CONFIRM'");
             String confirm = in.nextLine();
             if (confirm.equals("CONFIRM")) {
+                ps.deletePlayer(name);
+                System.out.println(name + " has been deleted!");
                 return 2;
             } else {
                 return 3;
@@ -32,6 +38,7 @@ public class MenuServices {
         }
         return 3;
     }
+
     public String getCharacterSelection(MenuServices ms)  {
         System.out.println("Choose your character by typing the name of the character you want. Type 'back' to return to the menu\n");
         try {
@@ -56,6 +63,6 @@ public class MenuServices {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return "";
+        return null;
     }
 }
