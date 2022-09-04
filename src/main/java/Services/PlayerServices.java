@@ -6,6 +6,7 @@ import Util.ConnectionUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
@@ -18,11 +19,24 @@ public class PlayerServices {
         conn = ConnectionUtil.getConnection();
         pr = new PlayerRepository();
     }
-   /*
+
     public Player getPlayerFromTable(String name) {
-        ;
+        Connection conn = ConnectionUtil.getConnection();
+        Player p;
+        try {
+            PreparedStatement ps = conn.prepareStatement("select * from players where name = ?");
+            ps.setString(1,name);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                p = new Player(rs.getString("name"),rs.getString("class"),rs.getInt("hp"),rs.getInt("maxhp"),rs.getInt("ac"),rs.getInt("dmg"),rs.getInt("addtodmg"),rs.getInt("addtohit"),rs.getInt("heal"),rs.getString("atkname"),rs.getInt("lvl"),rs.getInt("xp"),rs.getInt("coin"));
+                return p;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
-    */
+
     public void deletePlayer(String name) {
         Connection conn = ConnectionUtil.getConnection();
         try {

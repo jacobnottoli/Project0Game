@@ -1,7 +1,7 @@
+import Menus.GameMenu;
 import Model.Player;
 import Services.MenuServices;
 import Services.PlayerServices;
-import com.sun.tools.javac.Main;
 
 import java.util.Scanner;
 
@@ -14,11 +14,13 @@ public class MainMenu {
             String menuchoice = in.nextLine();
             PlayerServices ps = new PlayerServices();
             MenuServices ms = new MenuServices();
+            GameMenu gm = new GameMenu();
             Player p;
             if (menuchoice.equals("1")) {
                 //Create Character
                 p = ps.chooseClass(ps);
                 ps.addPlayer(p);
+                gm.theGameMenu(p,gm);
             } else if (menuchoice.equals("2")) {
                 //Return to existing character
                 String character = ms.getCharacterSelection(ms);
@@ -26,7 +28,7 @@ public class MainMenu {
                     int choice = ms.playOrDelete(character);
                     if (choice == 1) {
                         //play game
-
+                        gm.theGameMenu(ps.getPlayerFromTable(character),gm);
                     } else if (choice == 2) {
                         // delete character
                     }
