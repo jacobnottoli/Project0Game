@@ -119,6 +119,6 @@ public class PlayerServices {
     }
     public Player createTwoHandedWarrior(String name) {
 
-        return new Player(name,"Two Handed Warrior",10,10,15,12,6,5,4,"Greatsword",1,85,0);
+        return new Player(name,"Two Handed Warrior",10,10,15,10,6,5,4,"Greatsword",1,85,0);
     }
 }

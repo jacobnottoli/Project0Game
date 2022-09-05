@@ -13,6 +13,17 @@ public class UpdatePlayer {
     public UpdatePlayer () {
         Connection conn = ConnectionUtil.getConnection();
     }
+
+    public static void updatePlayerLvl (Player p) {
+        try {
+            PreparedStatement ps = conn.prepareStatement("update players set lvl = ? where name = ?");
+            ps.setInt(1,p.getLvl());
+            ps.setString(2,p.getName());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public static void updatePlayerHP (Player p) {
         try {
             PreparedStatement ps = conn.prepareStatement("update players set hp = ? where name = ?");
@@ -112,22 +123,32 @@ public class UpdatePlayer {
         p.setCoin(p.getCoin()+coin);
         UpdatePlayer.updatePlayerCoin(p);
         if (p.getLvl()!= ((p.getXp()/100)+1)) {
-            //Level up!
-            p.setLvl((p.getXp()/100)+1);
-            //update health
-            int healthdie = 0;
-            try {
-                PreparedStatement ps = conn.prepareStatement("select * from classstats where classname = ?");
-                ps.setString(1,p.getClas());
-                ResultSet rs = ps.executeQuery();
-                while (rs.next()) {
-                    healthdie = rs.getInt("hpdie");
+            //Level up! Only if not at max level
+            if (p.getLvl() < 100) {
+                p.setLvl((p.getXp()/100)+1);
+                UpdatePlayer.updatePlayerLvl(p);
+                //update health
+                int healthdie = 0;
+                try {
+                    PreparedStatement ps = conn.prepareStatement("select * from classstats where classname = ?");
+                    ps.setString(1,p.getClas());
+                    ResultSet rs = ps.executeQuery();
+                    while (rs.next()) {
+                        healthdie = rs.getInt("hpdie");
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
-            } catch (SQLException e) {
-                e.printStackTrace();
+                p.setMaxhp(p.getMaxhp()+healthdie);
             }
-            p.setMaxhp(p.getMaxhp()+healthdie);
-        }
+                //In case level gets overleveled, reset to 100
+                if (p.getLvl() > 100) {
+                    p.setLvl(100);
+                    UpdatePlayer.updatePlayerLvl(p);
+                }
+            }
+
+
         p.setHp(p.getMaxhp());
         UpdatePlayer.updatePlayerMaxHP(p);
         UpdatePlayer.updatePlayerHP(p);

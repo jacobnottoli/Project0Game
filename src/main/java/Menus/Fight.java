@@ -13,6 +13,7 @@ public class Fight {
     }
 
     public static void doFight(Player p, Monster m) {
+        System.out.println("\n" + p.getName() + " encounters a " + m.getName() + "!\n");
         while (p.getHp()>0 && m.getHp()>0) {
             System.out.println("\n" + p.getName() + "'s HP: " + p.getHp());
             System.out.println(p.getName() + "'s AC: " + p.getAc());
@@ -55,14 +56,16 @@ public class Fight {
             System.out.println("\nYou have died... Better luck next time...");
             p.setHp(p.getMaxhp());
         } else {
-            System.out.println("\n The " + m.getName() + " has been defeated! Congratulations!");
+            System.out.println("\nThe " + m.getName() + " has been defeated! Congratulations!");
+            System.out.println("You earned " + m.getXp() + " xp and " + m.getCoin() + " gold from this encounter!");
             UpdatePlayer.afterFightPlayerUpdate(p,m.getXp(),m.getCoin());
+            System.out.println("You currently have " + p.getXp() + " xp and " + p.getCoin() + " gold!");
 
         }
     }
     public static int fightPrompt(Player p) {
         System.out.println("\nWhat would you like to do?");
-        System.out.println("1.Use " + p.getAtkname() +"\n2. Heal");
+        System.out.println("1. Use " + p.getAtkname() +"\n2. Heal");
         Scanner in = new Scanner(System.in);
         int choice = in.nextInt();
         if (choice != 1 && choice != 2) {

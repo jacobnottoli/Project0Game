@@ -23,6 +23,7 @@ public class GameMenu {
                 FightMenu.doFightMenu(p);
             } else if (choice.equals("2")) {
                 //Store Menu
+                StoreMenu.doStoreMenu(p);
             } else if (choice.equals("3")) {
                 //CharacterSummary
                 CharacterSummaryMenu.doSummaryMenu(p);

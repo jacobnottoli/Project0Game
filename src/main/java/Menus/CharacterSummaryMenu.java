@@ -11,7 +11,7 @@ public class CharacterSummaryMenu {
         System.out.println("HP: " + p.getHp());
         System.out.println("AC: " + p.getAc());
         System.out.println("Add to hit bonus: " + p.getAddtohit());
-        System.out.println("Number of damage rolls: " + p.getLvl());
+        System.out.println("Number of damage rolls: " + ((p.getLvl()/3)+1));
         System.out.println("Damage range: " + p.getDmg());
         System.out.println("Damage added after roll: " + p.getAddtodmg());
         System.out.println("Heal range: " + p.getHeal());

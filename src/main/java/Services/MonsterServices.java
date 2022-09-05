@@ -18,7 +18,6 @@ public class MonsterServices {
     public Monster getMonsterFromTable(int num, String type) {
         try {
             PreparedStatement ps = conn.prepareStatement("select * from monsters where num = ? and enctype = ?");
-            System.out.println("select * from monster where num = " + String.valueOf(num) + " and enctype = '" + type + "'");
             ps.setString(1, String.valueOf(num));
             ps.setString(2, type);
             ResultSet rs = ps.executeQuery();
