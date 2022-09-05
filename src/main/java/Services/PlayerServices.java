@@ -109,16 +109,16 @@ public class PlayerServices {
     }
 
     public Player createFireMage(String name) {
-        return new Player(name,"Fire Mage",6,6,12,12,6,4,6,"Fireball",1,0,0);
+        return new Player(name,"Fire Mage",6,6,12,12,6,4,6,"Fireball",1,85,0);
     }
     public Player createFrostMage(String name) {
-        return new Player(name,"Frost Mage",6,6,12,10,4,6,6,"Ice Shard",1,0,0);
+        return new Player(name,"Frost Mage",6,6,12,10,4,6,6,"Ice Shard",1,85,0);
     }
     public Player createOneHandedWarrior(String name) {
-        return new Player(name,"One Handed Warrior",10,10,17,8,4,6,4,"Sword",1,0,0);
+        return new Player(name,"One Handed Warrior",10,10,17,8,4,6,4,"Sword",1,85,0);
     }
     public Player createTwoHandedWarrior(String name) {
 
-        return new Player(name,"Two Handed Warrior",10,10,15,12,6,5,4,"Greatsword",1,0,0);
+        return new Player(name,"Two Handed Warrior",10,10,15,12,6,5,4,"Greatsword",1,85,0);
     }
 }

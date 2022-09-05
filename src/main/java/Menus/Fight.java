@@ -3,6 +3,7 @@ package Menus;
 import Model.Monster;
 import Model.Player;
 import Model.Roll;
+import Services.UpdatePlayer;
 
 import java.util.Scanner;
 
@@ -52,8 +53,11 @@ public class Fight {
 
         if (p.getHp() <= 0) {
             System.out.println("\nYou have died... Better luck next time...");
+            p.setHp(p.getMaxhp());
         } else {
             System.out.println("\n The " + m.getName() + " has been defeated! Congratulations!");
+            UpdatePlayer.afterFightPlayerUpdate(p,m.getXp(),m.getCoin());
+
         }
     }
     public static int fightPrompt(Player p) {

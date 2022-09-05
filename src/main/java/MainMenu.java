@@ -2,6 +2,7 @@ import Menus.GameMenu;
 import Model.Player;
 import Services.MenuServices;
 import Services.PlayerServices;
+import Services.UpdatePlayer;
 
 import java.util.Scanner;
 
