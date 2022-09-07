@@ -1,0 +1,53 @@
+[33mcommit 71255623845d5b32c4a5d1ae65ea087d5cde1a6f[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Jacob Nottoli <jacob.nottoli@gmail.com>
+Date:   Mon Sep 5 16:44:21 2022 -0500
+
+    Beta Version Finished
+
+[33mcommit 7b195edfa60114afcb931e0b6cf55679cdde1227[m
+Author: Jacob Nottoli <jacob.nottoli@gmail.com>
+Date:   Sun Sep 4 19:51:54 2022 -0500
+
+    fight class fully functional, just need store class!
+
+[33mcommit 17955423ed94d5f2e29ee4567aa8a9f8b40fee20[m
+Author: Jacob Nottoli <jacob.nottoli@gmail.com>
+Date:   Sun Sep 4 13:43:56 2022 -0500
+
+    Fight class is functional, no player updates
+
+[33mcommit ba71e755223ed0eadca477224255dfb1059ffa6a[m
+Author: Jacob Nottoli <jacob.nottoli@gmail.com>
+Date:   Sun Sep 4 11:22:18 2022 -0500
+
+    added monster class, started fight menu
+
+[33mcommit e01ecb80c9eada4d2b0b2570a72be734d7200375[m
+Author: Jacob Nottoli <jacob.nottoli@gmail.com>
+Date:   Sat Sep 3 12:38:05 2022 -0500
+
+    Stable Version. Before instantiating player and playing game
+
+[33mcommit aea9014f836471eb47f71596439b22d70e81fbd0[m
+Author: Jacob Nottoli <jacob.nottoli@gmail.com>
+Date:   Fri Sep 2 16:50:11 2022 -0500
+
+    Can grab characters from SQL, added Menu Services class
+
+[33mcommit bca0bfd4b45e59f6280b5bafb0e32ea949e9f651[m
+Author: Jacob Nottoli <jacob.nottoli@gmail.com>
+Date:   Fri Sep 2 14:29:42 2022 -0500
+
+    Added SQL table connectivity for creating character
+
+[33mcommit 69332a93196f226102ebcd32d3301fd2b30982a7[m
+Author: Jacob Nottoli <jacob.nottoli@gmail.com>
+Date:   Fri Sep 2 12:49:53 2022 -0500
+
+    SQL connection, create character, added player class
+
+[33mcommit 2455cf9580c4c0a6c746b9bb82901421d7ca4646[m
+Author: Jacob Nottoli <jacob.nottoli@gmail.com>
+Date:   Fri Sep 2 10:20:56 2022 -0500
+
+    First commit. Created main menu

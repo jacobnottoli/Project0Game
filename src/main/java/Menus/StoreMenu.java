@@ -31,6 +31,7 @@ public class StoreMenu {
                     p.setCoin(p.getCoin()-15);
                     p.setHp(p.getHp()+(ClassServices.getClassHpDie(p)/2));
                     p.setMaxhp(p.getMaxhp()+(ClassServices.getClassHpDie(p)/2));
+                    System.out.println("\nYour health increased by " + ClassServices.getClassHealDie(p)/2 + "! Your health is currently: " + p.getHp());
                     UpdatePlayer.updatePlayerHP(p);
                     UpdatePlayer.updatePlayerMaxHP(p);
                     UpdatePlayer.updatePlayerCoin(p);
@@ -44,6 +45,7 @@ public class StoreMenu {
                     if (p.getCoin() >= 30) {
                         p.setCoin(p.getCoin()-30);
                         p.setAc(p.getAc()+1);
+                        System.out.println("\nYour Armor Class increased by 1! Your Armor Class is currently: " + p.getAc());
                         UpdatePlayer.updatePlayerAC(p);
                         UpdatePlayer.updatePlayerCoin(p);
                     } else {
@@ -55,6 +57,7 @@ public class StoreMenu {
                 if (p.getCoin() >= 20) {
                     p.setCoin(p.getCoin()-20);
                     p.setDmg(p.getDmg()+(ClassServices.getClassDMGDie(p)/2));
+                    System.out.println("\nYour damage range has increased by: " + ClassServices.getClassDMGDie(p)/2 + "! Your current damage range is: " + p.getDmg());
                     UpdatePlayer.updatePlayerDMG(p);
                     UpdatePlayer.updatePlayerCoin(p);
                 } else {
@@ -67,6 +70,7 @@ public class StoreMenu {
                     if (p.getCoin() >= 25) {
                         p.setCoin(p.getCoin()-25);
                         p.setAddtohit(p.getAddtohit()+1);
+                        System.out.println("\nYour add to hit increased by 1! Your add to hit is currently: " + p.getAddtohit());
                         UpdatePlayer.updatePlayerAddToHit(p);
                         UpdatePlayer.updatePlayerCoin(p);
                     } else {
@@ -78,6 +82,7 @@ public class StoreMenu {
                 if (p.getCoin() >= 25) {
                     p.setCoin(p.getCoin()-25);
                     p.setAddtodmg(p.getAddtodmg()+(ClassServices.getClassAddToDMGDie(p)/2));
+                    System.out.println("\nYour add to dmg increased by: " + ClassServices.getClassAddToDMGDie(p)/2 + "! Your add to dmg is currently: " + p.getAddtodmg());
                     UpdatePlayer.updatePlayerAddToDmg(p);
                     UpdatePlayer.updatePlayerCoin(p);
                 } else {
@@ -87,6 +92,7 @@ public class StoreMenu {
                 if (p.getCoin() >= 15) {
                     p.setCoin(p.getCoin()-15);
                     p.setHeal(p.getHeal()+(ClassServices.getClassHealDie(p)/2));
+                    System.out.println("\nYou upgraded your heal by " + ClassServices.getClassHealDie(p)/2 + "! Your heal is currently: " + p.getHeal());
                     UpdatePlayer.updatePlayerHeal(p);
                     UpdatePlayer.updatePlayerCoin(p);
                 } else {

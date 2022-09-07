@@ -94,7 +94,7 @@ public class BulkStoreMenu {
                 UpdatePlayer.updatePlayerCoin(p);
             } else if (bmchoice == 9) {
                 inBulkStore = false;
-            } else {
+          ~  } else {
                 System.out.println("\nInvalid Input! Please enter one of the numbers from the selection.");
                 BulkStoreMenu.doBulkStoreMenu(p);
             }
